@@ -16,8 +16,10 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            TabView {
-                OnboardView(intro: intros[currentPage])
+            TabView(selection: $currentPage) {
+                ForEach(0..<intros.count) { index in
+                    OnboardView(intro: intros[index])
+                }
             }
             
             .tabViewStyle(.page(indexDisplayMode: .always ))
