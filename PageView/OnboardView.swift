@@ -29,9 +29,6 @@ struct OnboardView: View {
         .padding(.horizontal, 40)
     }
     
-    func nextPage() {
-        
-    }
 }
 struct OnboardView_Previews: PreviewProvider {
     static var previews: some View {

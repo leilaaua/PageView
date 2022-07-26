@@ -9,14 +9,14 @@ import SwiftUI
 
 @main
 struct PageViewApp: App {
-//    @AppStorage("isOnBoarding") var isOnBoarding = true
+    @State var isOnBoarding = true
     var body: some Scene {
         WindowGroup {
-//            if isOnBoarding {
+            if isOnBoarding {
                 ContentView()
-//            } else {
-//                HomeView()
-//            }
+            } else {
+                HomeView()
+            }
         }
     }
 }
