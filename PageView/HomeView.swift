@@ -12,7 +12,7 @@ struct HomeView: View {
         ZStack {
             Color.white
             Text("Welcome!")
-                .foregroundColor(.yellow)
+                .font(.largeTitle)
                 
             
         }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var isOnBoarding = true
+    @AppStorage("isOnBoarding") var isOnBoarding: Bool?
     @State var currentPage = 0
     @State var buttonTitle = "Next"
     private var intros = Intro.getIntros()
@@ -26,7 +26,7 @@ struct ContentView: View {
             .indexViewStyle(.page(backgroundDisplayMode: .always))
             
             Button(action: nextPage) {
-                Text(buttonTitle)
+                Text(currentPage < intros.count - 1 ? "Next" : "Done")
                     .foregroundColor(.black)
                     .padding()
                     .background(
@@ -39,10 +39,9 @@ struct ContentView: View {
     }
     
     func nextPage() {
-        if currentPage < intros.count - 1 {
+        if currentPage != intros.count - 1 {
             currentPage += 1
         } else {
-            buttonTitle = "Done"
             isOnBoarding = false
         }
     }
