@@ -11,10 +11,21 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             Color.white
-            Text("Welcome!")
-                .font(.largeTitle)
-                
-            
+            Button(action: getList ) {
+                Text("OK")
+            }
+        }
+    }
+    
+    func getList() {
+        Network.shared.apollo.fetch(query: ExampleQueryQuery()) { result in
+          switch result {
+          case .success(let graphQLResult):
+              graphQLResult.data.getCountryMany.first?.fullName
+            print("Success! Result: \(graphQLResult)")
+          case .failure(let error):
+            print("Failure! Error: \(error)")
+          }
         }
     }
 }

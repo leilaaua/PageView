@@ -1,0 +1,13 @@
+query ExampleQuery {
+  getCountryMany {
+    addressMany {
+      id
+      city
+      address
+    }
+    code
+    fullName
+    id
+    name
+  }
+}
